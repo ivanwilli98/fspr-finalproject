@@ -1,0 +1,103 @@
+<div class="container-fluid" layout:fragment="content">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/dashboard">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Trips</li>
+        </ol>
+    </nav>
+
+    <!-- Row -->
+    <div class="row">
+        <!-- column -->
+        <div class="col-lg-8 col-md-7">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Trips</h4>
+                    <h6 class="card-subtitle">Agency Trips</h6>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Bus Code</th>
+                                <th>Source Stop</th>
+                                <th>Destination Stop</th>
+                                <th>Duration</th>
+                                <th>Fare</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of trip; let i=index">
+                                    <td>{{i+1}}</td>
+                                    <td>{{item.bus.code}}</td>
+                                    <td>{{item.sourceStop.code}}</td>
+                                    <td>{{item.destStop.code}}</td>
+                                    <td>{{item.journeyTime}}</td>
+                                    <td>{{item.fare}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Add New Trip</h3>
+                    <h6 class="card-subtitle">Enter details</h6>
+                    <form action="#" class="form-horizontal form-material" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label for="busCode" class="col-md-12">Bus Code</label>
+                            <div class="col-md-12">
+                                <select class="form-control" id="busCode" name="busCode" [(ngModel)]="form.bus_id">
+                                    <option *ngFor="let buses of bus" [value]="buses?.id">{{buses?.code}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="sourceStop" class="col-md-12">Source Stop</label>
+                            <div class="col-md-12">
+                                <select class="form-control" id="sourceStop" name="sourceStop" [(ngModel)]="form.source_stop_id">
+                                    <option *ngFor="let stops of stop" [value]="stops?.id">{{stops?.code}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="destinationStop"class="col-md-12">Destination Stop</label>
+                            <div class="col-md-12">
+                                <select class="form-control" id="destinationStop" name="destinationStop" [(ngModel)]="form.dest_stop_id">
+                                    <option *ngFor="let stops of stop" [value]="stops?.id">{{stops?.code}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tripDuration" class="col-md-12">Trip Duration(min)</label>
+                            <div class="col-md-12">
+                                <input type="text" class="form-control form-control-line" name="tripDuration" id="tripDuration" [(ngModel)]="form.journey_time">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tripFare" class="col-md-12">Fare</label>
+                            <div class="col-md-12">
+                                <input type="text" class="form-control form-control-line" name="tripFare" id="tripFare" [(ngModel)]="form.fare">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <button class="btn btn-success">Add Trip</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Row -->
+    <!-- ============================================================== -->
+    <!-- End PAge Content -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->

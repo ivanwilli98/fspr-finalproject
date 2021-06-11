@@ -1,0 +1,71 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Buses</li>
+    </ol>
+</nav>
+
+<!-- Row -->
+<div class="row">
+    <!-- column -->
+    <div class="col-lg-8 col-md-7">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Buses</h4>
+                <h6 class="card-subtitle">Agency owned buses</h6>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Bus Code</th>
+                            <th>Capacity</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of bus; let i=index">
+                                <td>{{i+1}}</td>
+                                <td>{{item.code}}</td>
+                                <td>{{item.capacity}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-5">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Add New Bus</h3>
+                <h6 class="card-subtitle">Enter details</h6>
+                <form class="form-horizontal form-material" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="code" class="col-md-12">Bus Code</label>
+                        <div class="col-md-12">
+                            <input type="text" class="form-control form-control-line" name="code" id="code" [(ngModel)]="form.code">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="capacity" class="col-md-12">Capacity</label>
+                        <div class="col-md-12">
+                            <input type="text" class="form-control form-control-line" name="capacity" id="capacity" [(ngModel)]="form.capacity">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="make" class="col-md-12">Make/Model</label>
+                        <div class="col-md-12">
+                            <input type="text" class="form-control form-control-line" name="make" id="make" [(ngModel)]="form.model">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <button class="btn btn-success">Add Bus</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Row -->

@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="card-body">
+        <form class="form-horizontal form-material" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <input type="text" name="id" id="id" hidden [(ngModel)]="form.id">
+            </div>
+            <div class="form-group">
+                <label for="firstName" class="col-md-12">First Name</label>
+                <div class="col-md-12">
+                    <input type="text"  class="form-control form-control-line" name="firstName" id="firstName" [(ngModel)]="form.firstName">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastName" class="col-md-12">Last Name</label>
+                <div class="col-md-12">
+                    <input type="text" class="form-control form-control-line" name="lastName" id="lastName" [(ngModel)]="form.lastName">
+                </div>
+           </div>
+            <div class="form-group">
+                <label for="mobileNumber" class="col-md-12">Phone No</label>
+                <div class="col-md-12">
+                    <input type="text" class="form-control form-control-line" name="mobileNumber" id="mobileNumber" [(ngModel)]="form.mobileNumber">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <button class="btn btn-success">Update Profile</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

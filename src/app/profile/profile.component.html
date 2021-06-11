@@ -1,0 +1,35 @@
+<div class="container-fluid" layout:fragment="content">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/dashboard">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Profile</li>
+        </ol>
+    </nav>
+
+    <!-- Row -->
+    <div class="row">
+        <!-- Column -->
+        <div class="col-lg-4 col-xlg-3 col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <center class="m-t-30">
+                        <img src="assets/img/5.jpg" class="img-circle rounded-circle" width="150"/>
+                        <h4 class="card-title m-t-10" th:inline="text">{{user?.firstName}} {{user?.lastName}}</h4>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <!-- Column -->
+        <!-- Column -->
+        <div class="col-lg-4 col-xlg-3 col-md-7">
+            <app-profile-form></app-profile-form>
+        </div>
+        <!-- Column -->
+        <!-- Column -->
+        <div class="col-lg-4 col-xlg-3 col-md-5">
+            <app-password-form></app-password-form>
+        </div>
+        <!-- Column -->
+    </div>
+    <!-- Row -->
+</div>

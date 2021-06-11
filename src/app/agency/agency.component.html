@@ -1,0 +1,26 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Agency</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-lg-4 col-xlg-3 col-md-5">
+        <div class="card">
+            <div class="card-body">
+                <center class="m-t-30">
+                    <img src="assets/img/5.jpg" class="img-fluid rounded-circle" width="150"/>
+                    <h4 class="card-title m-t-10" th:inline="text">{{agency?.name}}</h4>
+                    <h6 class="card-subtitle" th:inline="text">{{agency?.code}}</h6>
+                </center>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-xlg-9 col-md-7">
+        <div class="card">
+            <div class="card-body">
+                <app-agency-form></app-agency-form>
+        </div>
+    </div>
+</div>
