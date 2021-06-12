@@ -1,15 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { TokenStorageService } from '../_services/token-storage.service';
-import { Agency } from './agency.model';
 
 const baseUrl = 'http://localhost:8080/api/v1/agency';
 
 @Injectable({
   providedIn: 'root'
 })
-
 
 export class AgencyService {
   token?: any;

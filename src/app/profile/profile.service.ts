@@ -26,22 +26,6 @@ export class ProfileService {
     }
   }
 
-  // updateUser(id: any, firstName:string, lastName:string, mobileNumber:string) {
-  //   this.getToken();
-  //   console.log(id,firstName,lastName,mobileNumber);
-    
-  //   const body = {
-  //     "firstName": firstName,
-  //     "lastName": lastName,
-  //     "mobileNumber": mobileNumber
-  //   }
-  //   return this.http.put(`${baseUrl}/${id}`, body, this.httpOptions).subscribe({
-  //     error:error => {
-  //       console.error('There was an error!', error);
-  //     }
-  //   });
-  // }
-
   updateUser(id: any, firstName:any, lastName:any, mobileNumber:any) {
     this.getToken();
     console.log(id, firstName, lastName, mobileNumber);
@@ -54,7 +38,6 @@ export class ProfileService {
     
     return this.http.put(`${baseUrl}/${id}`, body, this.httpOptions).subscribe({
       next:data => {
-        // this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
         window.location.reload(); 
 

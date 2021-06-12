@@ -18,7 +18,6 @@ export class AgencyComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.tokenStorage.getUser();
     this.getAgency(this.user.id);
-    
   }
 
   getAgency(id?:number): void {

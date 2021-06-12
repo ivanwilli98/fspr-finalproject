@@ -38,7 +38,6 @@ export class FormComponent implements OnInit {
     this.agencyService.updateAgency(id,code,name,details,owner);
     window.location.reload();
     // console.log(id, name, details, code);  
-
   }
 
 }

@@ -1,25 +1,34 @@
 <div class="card">
     <div class="card-body">
-        <form class="form-horizontal form-material" (ngSubmit)="onSubmit()">
+        <form class="form-horizontal form-material" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
             <div class="form-group">
                 <input type="text" name="id" id="id" hidden [(ngModel)]="form.id">
             </div>
             <div class="form-group">
                 <label for="firstName" class="col-md-12">First Name</label>
                 <div class="col-md-12">
-                    <input type="text"  class="form-control form-control-line" name="firstName" id="firstName" [(ngModel)]="form.firstName">
+                    <input type="text"  class="form-control form-control-line" name="firstName" id="firstName" [(ngModel)]="form.firstName" required #firstName="ngModel">
+                    <div class="alert alert-danger" role="alert" *ngIf="firstName.errors && f.submitted">
+                        Firstname is required!
+                    </div>
                 </div>
             </div>
             <div class="form-group">
                 <label for="lastName" class="col-md-12">Last Name</label>
                 <div class="col-md-12">
-                    <input type="text" class="form-control form-control-line" name="lastName" id="lastName" [(ngModel)]="form.lastName">
+                    <input type="text" class="form-control form-control-line" name="lastName" id="lastName" [(ngModel)]="form.lastName" required #lastName="ngModel">
+                    <div class="alert alert-danger" role="alert" *ngIf="lastName.errors && f.submitted">
+                        Lastname is required!
+                    </div>
                 </div>
            </div>
             <div class="form-group">
                 <label for="mobileNumber" class="col-md-12">Phone No</label>
                 <div class="col-md-12">
-                    <input type="text" class="form-control form-control-line" name="mobileNumber" id="mobileNumber" [(ngModel)]="form.mobileNumber">
+                    <input type="text" class="form-control form-control-line" name="mobileNumber" id="mobileNumber" [(ngModel)]="form.mobileNumber" required #mobileNumber="ngModel">
+                    <div class="alert alert-danger" role="alert" *ngIf="mobileNumber.errors && f.submitted">
+                        Phone no is required!
+                    </div>
                 </div>
             </div>
             <div class="form-group">

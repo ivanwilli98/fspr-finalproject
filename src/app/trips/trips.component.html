@@ -46,41 +46,59 @@
                 <div class="card-body">
                     <h3 class="card-title">Add New Trip</h3>
                     <h6 class="card-subtitle">Enter details</h6>
-                    <form action="#" class="form-horizontal form-material" (ngSubmit)="onSubmit()">
+                    <form class="form-horizontal form-material" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
                         <div class="form-group">
                             <label for="busCode" class="col-md-12">Bus Code</label>
                             <div class="col-md-12">
-                                <select class="form-control" id="busCode" name="busCode" [(ngModel)]="form.bus_id">
+                                <select class="form-control" id="bus_id" name="bus_id" [(ngModel)]="form.bus_id" required #busId="ngModel">
+                                    <option value=null hidden>Choose one</option>
                                     <option *ngFor="let buses of bus" [value]="buses?.id">{{buses?.code}}</option>
                                 </select>
+                                <div class="alert alert-danger" role="alert" *ngIf="busId.errors && f.submitted" >
+                                    Bus code is required!
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="sourceStop" class="col-md-12">Source Stop</label>
                             <div class="col-md-12">
-                                <select class="form-control" id="sourceStop" name="sourceStop" [(ngModel)]="form.source_stop_id">
+                                <select class="form-control" id="sourceStop" name="sourceStop" [(ngModel)]="form.source_stop_id" required #sourceId="ngModel">
+                                    <option value=null hidden>Choose one</option>
                                     <option *ngFor="let stops of stop" [value]="stops?.id">{{stops?.code}}</option>
                                 </select>
+                                <div class="alert alert-danger" role="alert" *ngIf="sourceId.errors && f.submitted" >
+                                    Source stop is required!
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="destinationStop"class="col-md-12">Destination Stop</label>
                             <div class="col-md-12">
-                                <select class="form-control" id="destinationStop" name="destinationStop" [(ngModel)]="form.dest_stop_id">
+                                <select class="form-control" id="destinationStop" name="destinationStop" [(ngModel)]="form.dest_stop_id" required #destinationId="ngModel">
+                                    <option value=null hidden>Choose one</option>
                                     <option *ngFor="let stops of stop" [value]="stops?.id">{{stops?.code}}</option>
                                 </select>
+                                <div class="alert alert-danger" role="alert" *ngIf="busId.errors && f.submitted" >
+                                    Destination stop is required!
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="tripDuration" class="col-md-12">Trip Duration(min)</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control form-control-line" name="tripDuration" id="tripDuration" [(ngModel)]="form.journey_time">
+                                <input type="text" class="form-control form-control-line" name="tripDuration" id="tripDuration" [(ngModel)]="form.journey_time" required #tripDuration="ngModel">
+                                <div class="alert alert-danger" role="alert" *ngIf="tripDuration.errors && f.submitted" >
+                                    Trip duration is required!
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="tripFare" class="col-md-12">Fare</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control form-control-line" name="tripFare" id="tripFare" [(ngModel)]="form.fare">
+                                <input type="text" class="form-control form-control-line" name="tripFare" id="tripFare" [(ngModel)]="form.fare" required #fare="ngModel">
+                                <div class="alert alert-danger" role="alert" *ngIf="fare.errors && f.submitted" >
+                                    Fare is required!
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">

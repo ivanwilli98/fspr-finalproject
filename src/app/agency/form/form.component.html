@@ -1,4 +1,4 @@
-<form class="form-horizontal form-material" (ngSubmit)="onSubmit()">
+<form class="form-horizontal form-material" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
     <div class="form-group">
         <input type="text" name="id" id="id" hidden [(ngModel)]="form.id">
         <input type="text" name="code" id="code" hidden [(ngModel)]="form.code">
@@ -6,16 +6,20 @@
     <div class=" form-group">
         <label for="name" class="col-md-12">Agency Name</label>
         <div class="col-md-12">
-            <input type="text" class="form-control form-control-line" name="name" id="name" [(ngModel)]="form.name">
+            <input type="text" class="form-control form-control-line" name="name" id="name" [(ngModel)]="form.name" required #name="ngModel">
+            <div class="alert alert-danger" role="alert" *ngIf="name.errors && f.submitted">
+                Agency name is required!
+            </div>
         </div>
-        <small class="text-danger-padded"></small>
     </div>
     <div class="form-group">
         <label for="details" class="col-md-12">Agency Detail</label>
         <div class="col-md-12">
-            <input type="text" class="form-control form-control-line" name="details" id="agencyDetails" [(ngModel)]="form.details">
+            <input type="text" class="form-control form-control-line" name="details" id="details" [(ngModel)]="form.details" required #details="ngModel">
+            <div class="alert alert-danger" role="alert" *ngIf="details.errors && f.submitted">
+                Agency details is required!
+            </div>
         </div>
-        <small class="text-danger-padded"></small>
     </div>
     <div class="form-group">
         <div class="col-sm-12">
